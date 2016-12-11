@@ -1,0 +1,452 @@
+syntax error
+invalid code
+illformed code
+illegal code
+
+say˝ sistemleri (2'lik say˝ sistemi)
+
+meta terminoloji
+
+
+#include <stdio.h>
+
+int main()
+{
+	int k;
+
+	for (k = 0; k < 1; --k)
+		;
+
+	printf("k = %d\n", k);
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+16  hexadecimal system
+hex system
+0 1 2 3 4 5 6 7 8 9 A B C D E F
+
+1ACF
+
+
+AF87
+
+1010 1111 1000 0111
+1110 1010 0001 1111
+
+EA1F
+//////////////////////////////////////////////////////////////
+
+8A4F
+1000 
+
+//////////////////////////////////////////////////////////////
+2 BYTE'lik alanda i˛aretli olarak yaz˝labilecek en buyuk say˝y˝
+16'l˝k say˝ sisteminde ifade edin
+
+0111 1111 1111 1111
+7FFF
+
+2 BYTE'lik alanda i˛aretli olarak yaz˝labilecek en k¸Á¸k say˝y˝
+16'l˝k say˝ sisteminde ifade edin
+1000 0000 0000 0000
+8000  
+
+2 BYTE'lik alanda i˛aretli olarak -1 say˝s˝n˝ 
+16'l˝k say˝ sisteminde ifade edin
+FFFF 
+
+#include <stdio.h>
+
+int main()
+{
+	unsigned int x = -1;
+
+	printf("x = %u\n", x);
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+
+keyword		anahtar sˆzc¸k
+identifier	isim
+operator	i˛leÁ
+constant	sabit/dei˛mez
+string (literal)  string / dizge
+delimiter    ay˝raÁ
+
+#include <stdio.h>
+
+int isprime(int val)
+{
+	int k;
+	
+	if (val == 0 || val == 1)
+		return 0;
+
+	if (val % 2 == 0)
+		return val == 2;
+
+	if (val % 3 == 0)
+		return val == 3;
+
+	if (val % 5 == 0)
+		return val == 5;
+
+	for (k = 7; k * k <= val; k += 2) {
+		if (val % k == 0)
+			return 0;
+	}
+
+	return 1;
+}
+
+
+int main()
+{
+	int low, high, k;
+	int prime_counter = 0;
+
+	printf("iki sayi giriniz : ");
+	scanf("%d%d", &low, &high);
+	if (low > high) {
+		int temp = low;
+		low = high;
+		high = temp;
+	}
+	for (k = low; k <= high; ++k) {
+		if (isprime(k)) {
+			printf("%d ", k);
+			++prime_counter;
+		}
+	}
+	printf("\n[%d %d] araliginda %d asal sayi bulundu", low, high, prime_counter);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+object  (nesne)
+
+*(int *)0x1600
+
+default types (built-in types / primitive types)
+doal t¸rler / varsay˝lan t¸rler
+----------------------------------------------------
+user defined type
+(kodla olu˛turulan t¸rler)
+(programc˝ taraf˝ndan olu˛turulan t¸rler)
+
+L value (expression) (sol taraf ifadesi/ sol taraf deeri)
+R value (expression) (sa taraf ifadesi/ sa taraf deeri)
+constant expression  (sabit ifadesi)
+double quote
+asterisk
+ampersand
+hyphen
+underscore
+caret
+
+
+
+^   ~
+
+square bracket [ ]
+(curly brace)   { }
+angular bracket (aÁ˝sal parantez)< >
+
+
+
+varsay˝lan t¸rler (default types)
+bildirim ve tan˝mlama (declaration and definition)
+i˛levler (functions)
+sabitler (constants)
+i˛leÁler (operators)
+kontrol deyimleri (control statements)
+
+
+DEFAULT TYPES (DO–AL T‹RLER)
+	tamsay˝ t¸rleri (integer types)
+
+char types (1 byte)
+	char				(-128 127)  (0 255)
+	signed char          -128   127
+	unsigned char         0   255
+
+short integer types
+     signed short int      (-32768 / 32767)
+	 unsigned short int    (0 - 65535)
+
+(normal) integer types (2 / 4 byte)
+	signed int       (-32768 / 32767)  (-2147483648 2147483647)
+	unsigned int     (0 - 65535)  (0 - 4294..)
+
+long integer types
+     signed long int				(-2147483648 2147483647)
+     unsigned signed long int		(0 - 4294..)
+
+//C99 ve C++
+long long integer types  (8 byte)
+     signed long long int     (-9322.. kentrilyon)
+     unsigned long long int    (0 18....)
+
+
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+#include <stdio.h>
+
+int main()
+{
+	printf("sizeof(char)                    = %u\n", sizeof(char));
+	printf("sizeof(short)                   = %u\n", sizeof(short));
+	printf("sizeof(int)                     = %u\n", sizeof(int));
+	printf("sizeof(long)                    = %u\n", sizeof(long));
+	printf("sizeof(long long)               = %u\n", sizeof(long long));
+
+	return 0;
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+#include <stdio.h>
+
+int main()
+{
+	printf("sizeof(char)                    = %u\n", sizeof(char));
+	printf("sizeof(short)                   = %u\n", sizeof(short));
+	printf("sizeof(int)                     = %u\n", sizeof(int));
+	printf("sizeof(long)                    = %u\n", sizeof(long));
+	printf("sizeof(long long)               = %u\n", sizeof(long long));
+	printf("sizeof(float)                   = %u\n", sizeof(float));
+	printf("sizeof(double)                  = %u\n", sizeof(double));
+	printf("sizeof(long double)             = %u\n", sizeof(long double));
+
+	return 0;
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+Bildirim ve tan˝mlama
+
+signed
+unsigned
+char
+short
+int
+long
+float
+double
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+char
+signed char
+unsigned char
+////////////////////////////
+signed short int
+short int
+short
+signed short
+////////////////////////////
+unsigned  short int
+unsigned short
+////////////////////////////
+signed int
+int
+signed
+////////////////////////////
+unsigned int
+unsigned
+////////////////////////////
+signed long int
+long int
+long
+signed long
+////////////////////////////
+unsigned  long int
+unsigned long
+////////////////////////////
+float
+////////////////////////////
+double
+////////////////////////////
+long double
+////////////////////////////
+
+
+
+#include <stdio.h>
+
+
+int main()
+{
+	int x, y, z;
+
+
+	
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+#include <stdio.h>
+
+int g;
+
+int main()
+{
+	printf("g = %d\n", g);
+	
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+#include <stdio.h>
+
+void func()
+{
+	static int g;
+
+	printf("g = %d\n", g);
+}
+
+int main()
+{
+	func();
+
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+#include <stdio.h>
+
+
+int main()
+{
+	int x = 10, y = 20, z = 30;
+
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+#include <stdio.h>
+
+
+int main()
+{
+	int x = 10, y = x + 10, z = x + y + 67;
+
+	return 0;
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+#include <stdio.h>
+
+
+
+int main()
+{
+	printf("merhaba");
+	int x = 10;  //C89'da gecersiz C99 ve C++'da gecerli
+
+	return 0;
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+#include <stdio.h>
+
+
+
+int main()
+{
+	int x = 10;  
+
+	x = 45;
+
+	int y = 67; //C89'da gecersiz C99 ve C++'da gecerli
+
+	return 0;
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+#include <stdio.h>
+
+
+
+int main()
+{
+	int x = 10, y = 20;
+	////code
+	////code
+	////code
+	////code
+	////code
+	////code
+	////code
+	int temp = x;
+	x = y;
+	y = temp;
+
+	return 0;
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+int main()
+{
+	int x = 10, y = 20;
+	////code
+	////code
+	////code
+	////code
+	////code
+	////code
+	////code
+	{
+		int temp = x;
+		x = y;
+		y = temp;
+	}
+	return 0;
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
